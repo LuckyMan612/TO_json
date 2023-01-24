@@ -1,5 +1,10 @@
 // funkcja do przekształcania strony internetowej w JSON
-function transformPageToJson(pageUrl) {
+function transformPageToJson() {
+  // pobranie adresu URL strony z parametru URL
+  var pageUrl = new URL(window.location.href).searchParams.get("msg");
+  if (!pageUrl) {
+    return;
+  }
   // tworzenie nowego obiektu XMLHttpRequest
   var xhr = new XMLHttpRequest();
 
@@ -27,6 +32,5 @@ function transformPageToJson(pageUrl) {
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   // wysłanie żądania
   xhr.send();  
-  // nie wiem
-  
 }
+transformPageToJson();
